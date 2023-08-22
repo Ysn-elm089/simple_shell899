@@ -16,7 +16,7 @@ char *_strcpy(char *dest, char *src)
 	while (src[n])
 	{
 		dest[n] = src[n];
-		i++;
+		n++;
 	}
 	dest[n] = 0;
 	return (dest);
@@ -59,7 +59,7 @@ void _puts(char *str)
 		return;
 	while (str[t] != '\0')
 	{
-		_putchar(str[i]);
+		_putchar(str[t]);
 		t++;
 	}
 }
