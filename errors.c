@@ -80,6 +80,7 @@ int _putsfp(char *str, int fp)
 	while (*str)
 	{
 		i += _putsfp(str++, fp);
+		i += _putsfp(str, fp);
 	}
 	return (i);
 }
