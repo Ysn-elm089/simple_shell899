@@ -23,7 +23,7 @@ char **strtow(char *str, char *d)
 	if (numwords == 0)
 		return (NULL);
 	a = malloc((1 + numwords) * sizeof(char *));
-	if (!d)
+	if (!s)
 		return (NULL);
 	for (i = 0, j = 0; j < numwords; j++)
 	{
@@ -54,19 +54,15 @@ char **strtow(char *str, char *d)
  * @d: the delimeter
  * Return: a pointer to an array of strings, or NULL on failure
  */
-char **strtow2(char *str, char b)
-{
+char **strtow2(char *str)
+{       char b;
 	int i, j, k, m, numwords = 0;
 	char **s;
 
 	if (str == NULL || str[0] == 0)
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
-<<<<<<< HEAD
-		if ((str[i] != b && str[i + 1] ==b) ||
-=======
 		if ((str[i] != b && str[i + 1] == b) ||
->>>>>>> 222c35732d94a6911771719543b4a4b41abf439b
 				    (str[i] != b && !str[i + 1]) || str[i + 1] == b)
 			numwords++;
 	if (numwords == 0)
@@ -96,3 +92,4 @@ char **strtow2(char *str, char b)
 	s[j] = NULL;
 	return (s);
 }
+
