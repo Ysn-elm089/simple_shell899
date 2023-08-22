@@ -15,7 +15,7 @@ int _erratoi(char *t)
 		t++;  /* TODO: why does this make main return 255? */
 	for (i = 0;  t[i] != '\0'; i++)
 	{
-		if t[i] >= '0' && t[i] <= '9')
+		if (t[i] >= '0' && t[i] <= '9')
 		{
 			result *= 10;
 			result += (t[i] - '0');
