@@ -15,7 +15,7 @@ int _erratoi(char *t)
 		t++;  /* TODO: why does this make main return 255? */
 	for (i = 0;  t[i] != '\0'; i++)
 	{
-		if t[i] >= '0' && t[i] <= '9')
+		if( t[i] >= '0' && t[i] <= '9')
 		{
 			result *= 10;
 			result += (t[i] - '0');
@@ -112,7 +112,7 @@ char *convert_number(long int num, int base, int flags)
 	*ptr = '\0';
 
 	do	{
-		*--ptr = array[n % base];
+		*--ptr = array[m % base];
 		m /= base;
 	} while (m != 0);
 
@@ -134,7 +134,7 @@ void remove_comments(char *buf)
 	for (y = 0; buf[y] != '\0'; y++)
 		if (buf[y] == '#' && (!y || buf[y - 1] == ' '))
 		{
-			Buf[y] = '\0';
+			buf[y] = '\0';
 			break;
 		}
 }

@@ -22,7 +22,7 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 #if USE_GETLINE
 		s = getline(buf, &len_p, stdin);
 #else
-		S = _getline(info, buf, &len_p);
+		s = _getline(info, buf, &len_p);
 #endif
 		if (s > 0)
 		{
@@ -106,7 +106,7 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
 	s = read(info->readfd, buf, READ_BUF_SIZE);
 	if (s >= 0)
 		*i = s;
-	return (r);
+	return (s);
 }
 
 /**

@@ -79,7 +79,7 @@ int _putsfp(char *str, int fp)
 		return (0);
 	while (*str)
 	{
-		i += _putfp(*str++, fp);
+		i += _putsfp(str++, fp);
 	}
 	return (i);
 }
