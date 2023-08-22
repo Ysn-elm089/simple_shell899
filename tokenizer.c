@@ -62,7 +62,11 @@ char **strtow2(char *str, char b)
 	if (str == NULL || str[0] == 0)
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
+<<<<<<< HEAD
 		if ((str[i] != b && str[i + 1] ==b) ||
+=======
+		if ((str[i] != b && str[i + 1] == b) ||
+>>>>>>> 222c35732d94a6911771719543b4a4b41abf439b
 				    (str[i] != b && !str[i + 1]) || str[i + 1] == b)
 			numwords++;
 	if (numwords == 0)
