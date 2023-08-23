@@ -71,7 +71,7 @@ int _putfd(char c, int fd)
  *
  * Return: the number of chars put
  */
-int _putsfp(char *str, int fd)
+int _putsfd(char *str, int fd)
 {
 	int i = 0;
 
@@ -79,8 +79,8 @@ int _putsfp(char *str, int fd)
 		return (0);
 	while (*str)
 	{
-		i += _putsfp(str++, fd);
-		i += _putsfp(str, fd);
+		i += _putsfd(str++, fd);
+		i += _putsfd(str, fd);
 	}
 	return (i);
 }
