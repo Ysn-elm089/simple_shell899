@@ -86,14 +86,14 @@ size_t print_list(const list_t *h)
  *
  * Return: match node or null
  */
-list_t *node_starts_with(list_t *node, char *prefix, char k)
+list_t *node_starts_with(list_t *node, char *prefix, char c)
 {
 	char *p = NULL;
 
 	while (node)
 	{
 		p = starts_with(node->str, prefix);
-		if (p && ((k == -1) || (*p == k)))
+		if (p && ((c == -1) || (*p == c)))
 			return (node);
 		node = node->next;
 	}

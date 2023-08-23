@@ -26,18 +26,18 @@ void _eputs(char *str)
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _eputchar(char s)
+int _eputchar(char c)
 {
 	static int p;
 	static char buf[WRITE_BUF_SIZE];
 
-	if (s == BUF_FLUSH || p >= WRITE_BUF_SIZE)
+	if (c == BUF_FLUSH || p >= WRITE_BUF_SIZE)
 	{
 		write(2, buf, p);
 		p = 0;
 	}
-	if (s != BUF_FLUSH)
-		buf[p++] = s;
+	if (c != BUF_FLUSH)
+		buf[p++] = c;
 	return (1);
 }
 
@@ -49,18 +49,18 @@ int _eputchar(char s)
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _putfd(char s, int fp)
+int _putfd(char c, int fd)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
 
-	if (s == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
-		write(fp, buf, i);
+		write(fd, buf, i);
 		i = 0;
 	}
-	if (s != BUF_FLUSH)
-		buf[i++] = s;
+	if (c != BUF_FLUSH)
+		buf[i++] = c;
 	return (1);
 }
 
@@ -71,7 +71,7 @@ int _putfd(char s, int fp)
  *
  * Return: the number of chars put
  */
-int _putsfp(char *str, int fp)
+int _putsfp(char *str, int fd)
 {
 	int i = 0;
 
@@ -79,8 +79,8 @@ int _putsfp(char *str, int fp)
 		return (0);
 	while (*str)
 	{
-		i += _putsfp(str++, fp);
-		i += _putsfp(str, fp);
+		i += _putsfp(str++, fd);
+		i += _putsfp(str, fd);
 	}
 	return (i);
 }

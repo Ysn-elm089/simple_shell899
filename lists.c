@@ -8,7 +8,7 @@
  *
  * Return: size of list
  */
-list_t *add_node(list_t **head, const char *str, int nu)
+list_t *add_node(list_t **head, const char *str, int num)
 {
 	list_t *new_head;
 
@@ -18,7 +18,7 @@ list_t *add_node(list_t **head, const char *str, int nu)
 	if (!new_head)
 		return (NULL);
 	_memset((void *)new_head, 0, sizeof(list_t));
-	new_head->num = nu;
+	new_head->num = num;
 	if (str)
 	{
 		new_head->str = _strdup(str);
@@ -41,7 +41,7 @@ list_t *add_node(list_t **head, const char *str, int nu)
  *
  * Return: size of list
  */
-list_t *add_node_end(list_t **head, const char *str, int nu)
+list_t *add_node_end(list_t **head, const char *str, int num)
 {
 	list_t *new_node, *node;
 
@@ -53,7 +53,7 @@ list_t *add_node_end(list_t **head, const char *str, int nu)
 	if (!new_node)
 		return (NULL);
 	_memset((void *)new_node, 0, sizeof(list_t));
-	new_node->num = nu;
+	new_node->num = num;
 	if (str)
 	{
 		new_node->str = _strdup(str);
@@ -80,15 +80,15 @@ list_t *add_node_end(list_t **head, const char *str, int nu)
  *
  * Return: size of list
  */
-size_t print_list_str(const list_t *g)
+size_t print_list_str(const list_t *h)
 {
 	size_t i = 0;
 
-	while (g)
+	while (h)
 	{
-		_puts(g->str ? g->str : "(nil)");
+		_puts(h->str ? h->str : "(nil)");
 		_puts("\n");
-		g = g->next;
+		h = h->next;
 		i++;
 	}
 	return (i);
