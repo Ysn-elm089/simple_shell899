@@ -28,16 +28,16 @@ void _eputs(char *str)
  */
 int _eputchar(char c)
 {
-	static int p;
+	static int i;
 	static char buf[WRITE_BUF_SIZE];
 
-	if (c == BUF_FLUSH || p >= WRITE_BUF_SIZE)
+	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
-		write(2, buf, p);
-		p = 0;
+		write(2, buf, i);
+		i = 0;
 	}
 	if (c != BUF_FLUSH)
-		buf[p++] = c;
+		buf[i++] = c;
 	return (1);
 }
 
@@ -80,7 +80,6 @@ int _putsfd(char *str, int fd)
 	while (*str)
 	{
 		i += _putsfd(str++, fd);
-		i += _putsfd(str, fd);
 	}
 	return (i);
 }
