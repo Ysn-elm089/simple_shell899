@@ -10,7 +10,7 @@
 char **strtow(char *str, char *d)
 {
 	int i, j, k, m, numwords = 0;
-	char **a;
+	char **s;
 
 	if (str == NULL || str[0] == 0)
 		return (NULL);
@@ -22,8 +22,8 @@ char **strtow(char *str, char *d)
 
 	if (numwords == 0)
 		return (NULL);
-	a = malloc((1 + numwords) * sizeof(char *));
-	if (!a)
+	s = malloc((1 + numwords) * sizeof(char *));
+	if (!s)
 		return (NULL);
 	for (i = 0, j = 0; j < numwords; j++)
 	{
@@ -32,20 +32,20 @@ char **strtow(char *str, char *d)
 		k = 0;
 		while (!is_delim(str[i + k], d) && str[i + k])
 			k++;
-		a[j] = malloc((k + 1) * sizeof(char));
-		if (!a[j])
+		s[j] = malloc((k + 1) * sizeof(char));
+		if (!s[j])
 		{
 			for (k = 0; k < j; k++)
-				free(a[k]);
-			free(a);
+				free(s[k]);
+			free(s);
 			return (NULL);
 		}
 		for (m = 0; m < k; m++)
-			a[j][m] = str[i++];
-		a[j][m] = 0;
+			s[j][m] = str[i++];
+		s[j][m] = 0;
 	}
-	a[j] = NULL;
-	return (a);
+	s[j] = NULL;
+	return (s);
 }
 
 /**
